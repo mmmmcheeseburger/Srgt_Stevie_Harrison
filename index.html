@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USMC – The Few. The Proud.</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="progress-bar"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- PARTICLE CANVAS -->
+    <canvas id="particles"></canvas>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+      <div class="nav-logo">
+        <div class="nav-emblem-wrap">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle
+              cx="50"
+              cy="50"
+              r="47"
+              fill="none"
+              stroke="#c8102e"
+              stroke-width="2"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              fill="none"
+              stroke="#f4c300"
+              stroke-width="0.8"
+              stroke-dasharray="5 4"
+            />
+            <text
+              x="50"
+              y="54"
+              text-anchor="middle"
+              font-family="Oswald,sans-serif"
+              font-size="11"
+              fill="#c8102e"
+              font-weight="700"
+              letter-spacing="1"
+            >
+              USMC
+            </text>
+            <path
+              d="M50 18 L52.5 26 L61 26 L54.5 31 L57 39 L50 34 L43 39 L45.5 31 L39 26 L47.5 26Z"
+              fill="#f4c300"
+            />
+          </svg>
+        </div>
+        <div class="nav-title">U.S. <span>Marines</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#mos">My MOS</a></li>
+        <li><a href="#plan">Battle Plan</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#recruiter">Recruiter</a></li>
+        <li><a href="#oath" class="nav-cta">The Oath</a></li>
+      </ul>
+    </nav>
+
+    <!-- TICKER -->
+    <div class="ticker-bar">
+      <span class="ticker-inner"
+        >★ UNITED STATES MARINE CORPS ★ SEMPER FIDELIS ★ THE FEW. THE PROUD. ★
+        HONOR · COURAGE · COMMITMENT ★ FIRST TO FIGHT ★ DEVIL DOGS ★ OORAH ★
+        ALWAYS FAITHFUL ★ EST. 1775 ★ SEMPER FIDELIS ★</span
+      >
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+
+      <!-- FIXED Eagle Globe & Anchor -->
+      <div class="ega-container">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Glow filter -->
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="goldglow">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Globe body -->
+          <circle
+            cx="100"
+            cy="118"
+            r="54"
+            fill="none"
+            stroke="#c8102e"
+            stroke-width="2"
+            filter="url(#glow)"
+          />
+          <!-- Globe grid lines vertical -->
+          <ellipse
+            cx="100"
+            cy="118"
+            rx="27"
+            ry="54"
+            fill="none"
+            stroke="#c8102e"
+            stroke-width="1.2"
+            opacity="0.8"
+          />
+          <ellipse
+            cx="100"
+            cy="118"
+            rx="50"
+            ry="54"
+            fill="none"
+            stroke="#c8102e"
+            stroke-width="0.5"
+            opacity="0.3"
+          />
+          <!-- Globe horizontal lines -->
+          <line
+            x1="46"
+            y1="118"
+            x2="154"
+            y2="118"
+            stroke="#c8102e"
+            stroke-width="1.2"
+            opacity="0.8"
+          />
+          <line
+            x1="50"
+            y1="96"
+            x2="150"
+            y2="96"
+            stroke="#c8102e"
+            stroke-width="0.8"
+            opacity="0.6"
+          />
+          <line
+            x1="50"
+            y1="140"
+            x2="150"
+            y2="140"
+            stroke="#c8102e"
+            stroke-width="0.8"
+            opacity="0.6"
+          />
+          <line
+            x1="58"
+            y1="76"
+            x2="142"
+            y2="76"
+            stroke="#c8102e"
+            stroke-width="0.5"
+            opacity="0.4"
+          />
+          <line
+            x1="58"
+            y1="160"
+            x2="142"
+            y2="160"
+            stroke="#c8102e"
+            stroke-width="0.5"
+            opacity="0.4"
+          />
+
+          <!-- Anchor shaft -->
+          <line
+            x1="100"
+            y1="64"
+            x2="100"
+            y2="172"
+            stroke="#f4c300"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            filter="url(#goldglow)"
+          />
+          <!-- Anchor crossbar -->
+          <line
+            x1="76"
+            y1="84"
+            x2="124"
+            y2="84"
+            stroke="#f4c300"
+            stroke-width="3.5"
+            stroke-linecap="round"
+          />
+          <!-- Anchor ring at top -->
+          <circle
+            cx="100"
+            cy="64"
+            r="11"
+            fill="none"
+            stroke="#f4c300"
+            stroke-width="3"
+          />
+          <!-- Anchor arms at bottom -->
+          <path
+            d="M76 168 Q64 162 63 152"
+            fill="none"
+            stroke="#f4c300"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M124 168 Q136 162 137 152"
+            fill="none"
+            stroke="#f4c300"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M76 168 Q100 178 124 168"
+            fill="none"
+            stroke="#f4c300"
+            stroke-width="2.5"
+          />
+
+          <!-- Eagle body -->
+          <path
+            d="M100 22 C86 14 58 26 52 46 C62 37 76 34 87 40 L100 30 L113 40 C124 34 138 37 148 46 C142 26 114 14 100 22Z"
+            fill="#f4c300"
+            filter="url(#goldglow)"
+          />
+          <!-- Eagle wings extended -->
+          <path
+            d="M87 40 C72 36 55 42 44 54 C52 46 62 37 87 40Z"
+            fill="#f4c300"
+            opacity="0.7"
+          />
+          <path
+            d="M113 40 C128 36 145 42 156 54 C148 46 138 37 113 40Z"
+            fill="#f4c300"
+            opacity="0.7"
+          />
+          <!-- Eagle head -->
+          <circle cx="100" cy="22" r="8" fill="#c8102e" />
+          <!-- Eagle beak -->
+          <path d="M100 20 L106 24 L100 26Z" fill="#f4c300" />
+          <!-- Stars flanking eagle -->
+          <text x="26" y="44" fill="#f4c300" font-size="13" opacity="0.9">
+            ★
+          </text>
+          <text x="157" y="44" fill="#f4c300" font-size="13" opacity="0.9">
+            ★
+          </text>
+          <!-- Small accent dots -->
+          <circle cx="100" cy="64" r="4" fill="#f4c300" />
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">United States Marine Corps</div>
+        <h1 class="hero-title">
+          <span class="t1">The Few.</span>
+          <span class="t2 glitch" data-text="The Proud.">The Proud.</span>
+          <span class="t1">The Marines.</span>
+        </h1>
+        <div class="hero-rule"></div>
+        <div class="hero-sub">Semper Fidelis — Always Faithful</div>
+        <div class="hero-name-line">
+          Future Marine:
+          <span
+            ><span id="typed-name"></span><span class="typed-cursor"></span
+          ></span>
+        </div>
+
+        <!-- FIXED: Actions block keeps CTA and scroll indicator separated -->
+        <div class="hero-actions">
+          <a href="#about" class="hero-cta">Discover the Mission</a>
+          <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-chevron"></div>
+            <div class="scroll-chevron2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section id="stats">
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-num">
+            <span class="count-up" data-target="248">0</span>+
+          </div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-num">
+            <span class="count-up" data-target="180">0</span>K
+          </div>
+          <div class="stat-label">Active Marines</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-num">
+            <span class="count-up" data-target="300">0</span>+
+          </div>
+          <div class="stat-label">MOS Specialties</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-num">
+            #<span class="count-up" data-target="1">0</span>
+          </div>
+          <div class="stat-label">Fighting Force</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="section-header fade-in">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Born to <span>Fight</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-img-wrap fade-in-left">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_the_United_States_Marine_Corps.svg/1200px-Flag_of_the_United_States_Marine_Corps.svg.png"
+            alt="USMC Flag"
+            style="background: #111; padding: 24px"
+          />
+        </div>
+        <div class="about-text fade-in-right">
+          <h3>Honor · Courage · Commitment</h3>
+          <p>
+            The United States Marine Corps is the world's most elite fighting
+            force. From the shores of Tripoli to the black sands of Iwo Jima —
+            Marines have been
+            <strong>first to fight, first to answer</strong> every call.
+          </p>
+          <p>
+            Established on <strong>November 10, 1775</strong>, the Corps is
+            defined by three sacred core values that aren't just words — they're
+            a way of life earned through blood, sweat, and sacrifice.
+          </p>
+          <p>
+            This isn't a job. It's a <strong>transformation</strong>. A crucible
+            that burns away weakness and forges warriors. Leaders. Protectors.
+          </p>
+          <div class="core-values">
+            <div class="cv-badge">Honor</div>
+            <div class="cv-badge">Courage</div>
+            <div class="cv-badge">Commitment</div>
+            <div class="cv-badge">Oorah</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MOS ===== -->
+    <section id="mos">
+      <div class="section-header fade-in">
+        <div class="section-label">Military Occupational Specialty</div>
+        <h2 class="section-title">My <span>MOS</span> — Mechanical</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="mos-grid">
+        <div class="mos-card featured fade-in">
+          <span class="mos-icon">⚙️</span>
+          <div class="mos-badge">Primary MOS</div>
+          <h3>Motor Transport Mechanic</h3>
+          <p>
+            Maintaining, repairing, and overhauling military vehicles and
+            equipment. Every Marine needs wheels that work — that's my mission.
+          </p>
+        </div>
+        <div class="mos-card fade-in">
+          <span class="mos-icon">🔧</span>
+          <div class="mos-badge">MOS 3521</div>
+          <h3>Organizational Mechanic</h3>
+          <p>
+            Preventive maintenance and troubleshooting on tactical wheeled
+            vehicles. Keeping the Corps moving, one engine at a time.
+          </p>
+        </div>
+        <div class="mos-card fade-in">
+          <span class="mos-icon">🛠️</span>
+          <div class="mos-badge">MOS 1141</div>
+          <h3>Electrician / Power Systems</h3>
+          <p>
+            Installing and repairing electrical systems on military equipment
+            and facilities. The power behind the power.
+          </p>
+        </div>
+        <div class="mos-card fade-in">
+          <span class="mos-icon">🚁</span>
+          <div class="mos-badge">MOS 6046</div>
+          <h3>Aircraft Maintenance</h3>
+          <p>
+            Working on Marine Corps aircraft — Ospreys, F-35Bs, CH-53s. If it
+            flies, I keep it flying.
+          </p>
+        </div>
+        <div class="mos-card fade-in">
+          <span class="mos-icon">💡</span>
+          <div class="mos-badge">Skills Transfer</div>
+          <h3>Civilian Certifications</h3>
+          <p>
+            ASE certs, FAA licensing, DoD training — military mechanical skills
+            translate to civilian careers worth $60K–$90K+.
+          </p>
+        </div>
+        <div class="mos-card fade-in">
+          <span class="mos-icon">🎖️</span>
+          <div class="mos-badge">Career Growth</div>
+          <h3>NCO Leadership Track</h3>
+          <p>
+            From PFC to Sergeant — as a mechanical specialist, fast-tracked to
+            leadership. Expertise commands respect and rank.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BATTLE PLAN ===== -->
+    <section id="plan">
+      <div class="section-header fade-in">
+        <div class="section-label">The Roadmap</div>
+        <h2 class="section-title">Detailed <span>Battle Plan</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item fade-in">
+          <div class="tl-box">
+            <div class="tl-phase">Phase 01 · Now – 3 Months</div>
+            <div class="tl-title">Enlistment & Preparation</div>
+            <div class="tl-desc">
+              Lock in your MOS contract and begin conditioning your body and
+              mind.
+            </div>
+            <ul class="tl-tasks">
+              <li>Meet with Sgt. Stevie Harrison weekly</li>
+              <li>Pass ASVAB — target 65+ score</li>
+              <li>3-mile run under 28 min, 80+ push-ups</li>
+              <li>Complete MEPS physical examination</li>
+              <li>Secure Mechanical MOS contract in writing</li>
+              <li>Clear any legal or medical issues</li>
+            </ul>
+          </div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-gap"></div>
+        </div>
+
+        <div class="tl-item fade-in">
+          <div class="tl-gap"></div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-box">
+            <div class="tl-phase">Phase 02 · Month 3–6</div>
+            <div class="tl-title">Boot Camp — Parris Island / MCRD</div>
+            <div class="tl-desc">
+              13 weeks of transformation. This is where civilians become
+              Marines.
+            </div>
+            <ul class="tl-tasks">
+              <li>Black Phase — Receiving & Shock (Weeks 1–3)</li>
+              <li>Red Phase — Core skills & weapons (Weeks 4–7)</li>
+              <li>Green Phase — The Crucible prep (Weeks 8–11)</li>
+              <li>Week 12: The Crucible — 54-hour ultimate test</li>
+              <li>Week 13: Eagle, Globe & Anchor ceremony 🎖️</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item fade-in">
+          <div class="tl-box">
+            <div class="tl-phase">Phase 03 · Month 6–7</div>
+            <div class="tl-title">MCT — Marine Combat Training</div>
+            <div class="tl-desc">
+              29 days of combat skills at Camp Geiger or Camp Pendleton.
+            </div>
+            <ul class="tl-tasks">
+              <li>Advanced weapons and tactics training</li>
+              <li>Land navigation and field operations</li>
+              <li>Patrolling, ambushes, defensive ops</li>
+              <li>Complete as a combat-ready Marine</li>
+            </ul>
+          </div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-gap"></div>
+        </div>
+
+        <div class="tl-item fade-in">
+          <div class="tl-gap"></div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-box">
+            <div class="tl-phase">Phase 04 · Month 7–10</div>
+            <div class="tl-title">MOS School — Technical Training</div>
+            <div class="tl-desc">
+              Mechanical MOS school at Fort Leonard Wood or Camp Lejeune.
+            </div>
+            <ul class="tl-tasks">
+              <li>Motor Transport Mechanic course (10–16 weeks)</li>
+              <li>HMMWV, LMTV, MRAP, 7-ton truck systems</li>
+              <li>Hydraulics, electrical, drivetrain, engines</li>
+              <li>Graduate with MOS 3521 qualification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item fade-in">
+          <div class="tl-box">
+            <div class="tl-phase">Phase 05 · Year 1–4</div>
+            <div class="tl-title">Active Duty — First Enlistment</div>
+            <div class="tl-desc">
+              First duty station. Build career, earn ranks, deploy, see the
+              world.
+            </div>
+            <ul class="tl-tasks">
+              <li>PFC → Lance Corporal → Corporal promotions</li>
+              <li>Possible deployments: Japan, Okinawa, Middle East</li>
+              <li>Earn ASE / OSHA certifications</li>
+              <li>Tuition assistance — college while serving</li>
+              <li>Apply for Sergeant (E-5) promotion</li>
+            </ul>
+          </div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-gap"></div>
+        </div>
+
+        <div class="tl-item fade-in">
+          <div class="tl-gap"></div>
+          <div class="tl-center"><div class="tl-dot"></div></div>
+          <div class="tl-box">
+            <div class="tl-phase">Phase 06 · Year 4+</div>
+            <div class="tl-title">Reenlist or Transition — Your Choice</div>
+            <div class="tl-desc">
+              Multiple paths, all leading to success. The world is yours.
+            </div>
+            <ul class="tl-tasks">
+              <li>Option A: Reenlist + advance to Staff Sergeant</li>
+              <li>Option B: GI Bill — college or trade school</li>
+              <li>Option C: Defense contractor ($80K–$120K+)</li>
+              <li>Option D: Federal Law Enforcement (FBI, DEA)</li>
+              <li>VA Home Loan — buy a house with ZERO down</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery">
+      <div class="section-header fade-in">
+        <div class="section-label">Visual Strength</div>
+        <h2 class="section-title">The <span>Corps</span> in Action</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Official_Portrait_of_President_Donald_Trump.jpg/1200px-Official_Portrait_of_President_Donald_Trump.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1569974498991-d37c41a4d9f6?w=900&q=80'"
+            alt="Marines in formation"
+            style="object-position: center top"
+          />
+          <div class="gallery-caption">Marines in Formation</div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_the_United_States_Marine_Corps.svg/800px-Flag_of_the_United_States_Marine_Corps.svg.png"
+            alt="USMC Flag"
+            style="background: #0a0a0a; padding: 30px; object-fit: contain"
+          />
+          <div class="gallery-caption">The Flag We Carry</div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png"
+            alt="American Flag"
+            style="object-fit: contain; background: #000; padding: 20px"
+          />
+          <div class="gallery-caption">One Nation, Under God</div>
+        </div>
+        <div class="gallery-item fade-in" style="grid-column: span 2">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/USMC-02520.jpg/1280px-USMC-02520.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1000&q=80'"
+            alt="Marine Corps"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+          <div class="gallery-caption">Semper Fidelis — Always Faithful</div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/American_Marine_veteran.jpg/800px-American_Marine_veteran.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800&q=80'"
+            alt="Marine veteran"
+            style="object-fit: cover; object-position: center"
+          />
+          <div class="gallery-caption">The Proud</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OATH ===== -->
+    <section id="oath">
+      <div class="section-header fade-in">
+        <div class="section-label">The Commitment</div>
+        <h2 class="section-title">The <span>Oath</span> of Enlistment</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="oath-text fade-in">
+        "I, <strong>[your name]</strong>, do solemnly swear that I will
+        <span class="red-word">support and defend</span> the Constitution of the
+        United States against all enemies, foreign and domestic; that I will
+        <span class="red-word">bear true faith and allegiance</span> to the
+        same; and that I will <strong>obey the orders</strong> of the President
+        of the United States and the orders of the officers appointed over me,
+        according to regulations and the Uniform Code of Military Justice.
+        <span class="red-word">So help me God.</span>"
+      </div>
+      <div class="oath-sig fade-in">
+        — United States Armed Forces Oath of Enlistment · Est. 1775
+      </div>
+    </section>
+
+    <!-- ===== RECRUITER ===== -->
+    <section id="recruiter">
+      <div class="section-header fade-in">
+        <div class="section-label">My Recruiter</div>
+        <h2 class="section-title">The Man Who <span>Started It All</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="recruiter-card fade-in">
+        <div class="rec-rank">USMC Recruiting Station</div>
+        <div class="rec-name">Sgt. Stevie <span>Harrison</span></div>
+        <div class="rec-title">Marine Corps Recruiter · Mentor · Motivator</div>
+        <div class="rec-quote">
+          Sgt. Harrison didn't just hand me a brochure — he showed me a
+          <strong>path</strong>. A future with purpose, direction, and the kind
+          of pride that can't be bought. From the first conversation to signing
+          on the dotted line, he has been straight up, no BS, and locked in on
+          making sure this Marine succeeds. <br /><br />
+          <strong>This website is dedicated to Sgt. Stevie Harrison</strong> —
+          the recruiter who believed before I believed in myself. When I earn
+          that Eagle, Globe &amp; Anchor... it'll be for both of us.
+          <br /><br />
+          <em>— Oorah, Sgt. Harrison. Watch what happens next.</em>
+        </div>
+        <button class="salute-btn">🫡 SEMPER FI, SGT. HARRISON</button>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <span class="footer-ega">⚓</span>
+      <div class="footer-brand">United States Marine Corps</div>
+      <div class="footer-motto">Semper Fidelis — The Few. The Proud.</div>
+      <ul class="footer-nav">
+        <li><a href="#hero">Top</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#mos">MOS</a></li>
+        <li><a href="#plan">Battle Plan</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#oath">Oath</a></li>
+        <li><a href="#recruiter">Recruiter</a></li>
+      </ul>
+      <div class="footer-copy">
+        USMC · Est. November 10, 1775 · Always Faithful · Built with Pride 🇺🇸
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
